@@ -1,12 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>Library</title>
+  </head>
+  <body>
+
+    <div id="app">
+      <h1>Library</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem ut maiores architecto accusantium dolor. Eum voluptates explicabo, deleniti fugit sunt odit quasi amet non fuga ex modi voluptatibus commodi illum. Tempora quo perspiciatis saepe minima! Molestiae, harum temporibus tempore officiis adipisci delectus ad possimus quas officia provident necessitatibus placeat, dolor, consequatur nam amet vitae vero et quae dolore aliquid distinctio?
+      </p>
+      <form class="book-form">
+        <div class="form__fields">
+          <div class="field__container">
+            <input required autofocus class="field field__title" type="text">
+            <label>Title</label>
+          </div>
+          <div class="field__container">
+            <input required class="field field__author" type="text">
+            <label>Author</label>
+          </div>
+          <div class="field__container">
+            <input required class="field field__description" type="text">
+            <label>Description</label>
+          </div>
+        </div>
+        <button class="book__submit">Submit</button>
+      </form>
+      <table class="books">
+        <tr class="table__legend">
+          <th class="table__column column__number">#</th>
+          <th class="table__column column__title">Title</th>
+          <th class="table__column column__author">Author</th>
+          <th class="table__column column__description">Description</th>
+          <th class="table__column column__status">Status</th>
+        </tr>
+        <tr class="table__content">
+          <td class="table__item">
+            <div class="table__column column__number">1</div>
+            <div class="table__column column__title">Преступление и наказание</div>
+            <div class="table__column column__author">Фёдор Михайлович Достоевский</div>
+            <div class="table__column column__description">
+              «Преступление и наказание» — социально-психологический и социально-философский роман Фёдора Михайловича Достоевского, над которым писатель работал в 1865—1866 годах.
+            </div>
+            <div class="table__column column__status">
+              <button class="button button_success">Read</button>
+            </div>
+          </td>
+          <td class="table__item">
+            <div class="table__column column__number">2</div>
+            <div class="table__column column__title">Война и мир</div>
+            <div class="table__column column__author">Лев Николаевич Толстой</div>
+            <div class="table__column column__description">
+              «Война́ и мир» — роман-эпопея Льва Николаевича Толстого, описывающий русское общество в эпоху войн против Наполеона в 1805—1812 годах. Эпилог романа доводит повествование до 1820 года.
+            </div>
+            <div class="table__column column__status">
+              <button class="button button_success">Read</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </body>
 </html>
