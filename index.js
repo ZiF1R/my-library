@@ -32,7 +32,7 @@ function printNewBook(book) {
     <div class="table__column column__author">${book.author}</div>
     <div class="table__column column__description">${book.description}</div>
     <div class="table__column column__status">
-      <button class="button button_primary">Read</button>
+      <button class="button button_danger">Not read</button>
     </div>`;
 
   let readButton = bookNode.querySelector(".column__status > button");
