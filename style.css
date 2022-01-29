@@ -3,10 +3,13 @@
   font-weight: 300;
 }
 
+body {
+  font-size: 16px;
+}
+
 #app {
   width: 60%;
   margin: 60px auto;
-  font-size: 16px;
 }
 
 h1 {
@@ -76,25 +79,53 @@ p {
   transform: translateY(-50%) scale(.8);
 }
 
-.book__submit {
+.button {
   outline: none;
   border: none;
 
-  color: #ffffff;
-  background: #589ceb;
-  padding: 10px 25px;
+  border: 1px solid #222;
+  color: #222;
+  padding: 11px 25px;
 
+  font-size: 0.7em;
+  text-transform: uppercase;
   font-weight: 400;
+
+  background: none;
+  border-radius: 3px;
+
   user-select: none;
   cursor: pointer;
 }
 
-.book__submit:hover {
-  background: #62a2eb;
+/*
+  button primary
+*/
+.button_primary {
+  border: none;
+  color: #fff;
+  background: #58b0eb;
+}
+.button_primary:hover {
+  background: #5fb7f1;
+}
+.button_primary:active {
+  background: #53aae4;
 }
 
-.book__submit:active {
-  background: #5293dd;
+/*
+  button success
+*/
+.button_danger {
+  border: none;
+  color: #fff;
+  background: #eb5858;
+}
+.button_danger:hover {
+  background: #ee6161;
+}
+.button_danger:active {
+  background: #df5050;
 }
 
 .books {
