@@ -17,3 +17,86 @@ h1 {
 p {
   line-height: 1.4em;
 }
+
+.book-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 0 15px;
+}
+
+.form__fields {
+  display: flex;
+  flex-direction: row;
+}
+
+.field__container {
+  position: relative;
+}
+
+.field {
+  margin-right: 25px;
+  width: 200px;
+  padding: 10px 7px;
+
+  font-size: 1em;
+  border: 1px solid #b6b6b6;
+  border-radius: 2px;
+  outline: none;
+}
+
+.field:hover {
+  border: 1px solid #91cdff;
+}
+
+.field:focus {
+  border: 1px solid #5998e0;
+}
+
+.field__container label {
+  position: absolute;
+  top: 50%;
+  left: 7px;
+  padding: 5px;
+  background: #ffffff;
+
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: all ease-out .18s;
+}
+
+.field:focus ~ label {
+  top: 0;
+  transform: translateY(-50%) scale(.8);
+}
+
+.field:valid ~ label {
+  top: 0;
+  transform: translateY(-50%) scale(.8);
+}
+
+.book__submit {
+  outline: none;
+  border: none;
+
+  color: #ffffff;
+  background: #589ceb;
+  padding: 10px 25px;
+
+  font-weight: 400;
+  user-select: none;
+  cursor: pointer;
+}
+
+.book__submit:hover {
+  background: #62a2eb;
+}
+
+.book__submit:active {
+  background: #5293dd;
+}
+
+.books {
+  margin-top: 40px;
+}
