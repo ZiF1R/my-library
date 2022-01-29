@@ -32,6 +32,7 @@ p {
 .form__fields {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .field__container {
@@ -129,5 +130,83 @@ p {
 }
 
 .books {
-  margin-top: 40px;
+  margin-top: 50px;
+}
+
+.table__legend {
+  display: flex;
+  position: relative;
+  text-align: left;
+}
+
+.table__column {
+  cursor: pointer;
+  padding: 0 0 10px 10px;
+
+  user-select: none;
+}
+
+.column__number {
+  width: calc(5% - 10px);
+}
+
+.column__description {
+  width: calc(36% - 10px);
+}
+
+.column__title,
+.column__author,
+.column__status {
+  width: calc(20% - 10px);
+}
+
+.table__legend .table__column {
+  font-weight: 600;
+  border-bottom: 1px solid #999;
+}
+
+.table__legend .table__column:hover {
+  color: #589ceb;
+  border-bottom: 1px solid #589ceb;
+}
+
+.column__active {
+  color: #589ceb;
+  border-bottom: 1px solid #589ceb;
+}
+
+.table__content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.table__item {
+  display: flex;
+  padding: 20px 0 0;
+}
+
+.table__item .table__column {
+  cursor: auto;
+  user-select: text;
+  padding-bottom: 0;
+  padding-top: 0;
+  
+  display: -webkit-box;
+  display: box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.table__item .column__description {
+  padding-right: 10px;
+}
+
+.table__item .column__status {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
