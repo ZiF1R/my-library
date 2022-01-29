@@ -62,7 +62,7 @@ p {
   position: absolute;
   top: 50%;
   left: 7px;
-  padding: 5px;
+  padding: 0 5px;
   background: #ffffff;
 
   pointer-events: none;
@@ -168,14 +168,24 @@ p {
   border-bottom: 1px solid #999;
 }
 
+.table__legend .column__active {
+  color: #589ceb;
+  border-bottom: 1px solid #589ceb;
+}
+
 .table__legend .table__column:hover {
   color: #589ceb;
   border-bottom: 1px solid #589ceb;
 }
 
-.column__active {
-  color: #589ceb;
-  border-bottom: 1px solid #589ceb;
+.table__legend .column__active:hover {
+  color: #77b1f3;
+  border-bottom: 1px solid #77b1f3;
+}
+
+.table__legend .column__active:active {
+  color: #4b8eda;
+  border-bottom: 1px solid #4b8eda;
 }
 
 .table__content {
