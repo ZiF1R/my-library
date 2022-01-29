@@ -18,21 +18,12 @@ class Library {
   sortBy(column) {
     switch(column) {
     case "number": this.books.sort((a, b) => a.number - b.number); break;
-    case "title": this.books.sort((a, b) => {
-      if (a.title[0] > b.title[0]) return 1;
-      else if (a.title[0] === b.title[0]) return 0;
-      else return -1;
-    }); break;
-    case "author": this.books.sort((a, b) => {
-      if (a.author[0] > b.author[0]) return 1;
-      else if (a.author[0] === b.author[0]) return 0;
-      else return -1;
-    }); break;
-    case "description": this.books.sort((a, b) => {
-      if (a.description[0] > b.description[0]) return 1;
-      else if (a.description[0] === b.description[0]) return 0;
-      else return -1;
-    }); break;
+    case "title": case "author": case "description":
+      this.books.sort((a, b) => {
+        if (a[column][0] > b[column][0]) return 1;
+        else if (a[column][0] === b[column][0]) return 0;
+        else return -1;
+      }); break;
     case "status": this.books.sort((a, b) => {
       if (a.status && !b.status) return -1;
       else if ((a.status && b.status) || (!a.status && !b.status)) return 0;
@@ -95,7 +86,11 @@ function setDefaultEventListeners() {
       let authorField = document.body.querySelector(".form__fields .field__author");
       let descriptionField = document.body.querySelector(".form__fields .field__description");
       
-      myLibrary.addBook(titleField.value, authorField.value, descriptionField.value);
+      myLibrary.addBook(
+        titleField.value.trim(),
+        authorField.value.trim(),
+        descriptionField.value.trim()
+      );
       titleField.value = authorField.value = descriptionField.value = "";
       e.preventDefault();
     }
@@ -127,11 +122,11 @@ window.onload = () => {
   myLibrary.addBook(
     "Преступление и наказание",
     "Фёдор Михайлович Достоевский",
-    "«Преступление и наказание» — социально-психологический и социально-философский роман Фёдора Михайловича Достоевского, над которым писатель работал в 1865—1866 годах."
+    "Преступление и наказание — социально-психологический и социально-философский роман Фёдора Михайловича Достоевского, над которым писатель работал в 1865—1866 годах."
   );
   myLibrary.addBook(
     "Война и мир",
     "Лев Николаевич Толстой",
-    "«Война́ и мир» — роман-эпопея Льва Николаевича Толстого, описывающий русское общество в эпоху войн против Наполеона в 1805—1812 годах. Эпилог романа доводит повествование до 1820 года."
+    "Война́ и мир — роман-эпопея Льва Николаевича Толстого, описывающий русское общество в эпоху войн против Наполеона в 1805—1812 годах. Эпилог романа доводит повествование до 1820 года."
   );
 };
