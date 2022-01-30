@@ -1,0 +1,123 @@
+#v-popup {
+  position: fixed;
+  width: calc(400px - 40px);
+  background: #ffffff;
+
+  border: 1px solid #eee;
+  border-radius: 5px;
+
+  padding: 15px 10px 15px 30px;
+  cursor: pointer;
+  user-select: none;
+  opacity: 0;
+}
+
+#v-popup h3 {
+  font-weight: 700;
+  margin: 0;
+}
+
+#v-popup h3 ~ p {
+  margin-top: 10px;
+}
+
+#v-popup p {
+  margin: 0;
+  font-weight: 400;
+}
+
+#v-popup::before {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #b1b1b1;
+  z-index: 1;
+}
+
+#v-popup.before-add {
+  animation: show .21s forwards;
+}
+
+#v-popup.before-remove {
+  animation: hide .61s ease-out forwards;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* styles for positioning classes */
+
+#v-popup.top-right {
+  top: 5%;
+  right: 3%;
+}
+
+#v-popup.top-left {
+  top: 5%;
+  left: 3%;
+}
+
+#v-popup.bottom-right {
+  bottom: 5%;
+  right: 3%;
+}
+
+#v-popup.bottom-left {
+  bottom: 5%;
+  left: 3%;
+}
+
+
+/* popup styles classes */
+
+#v-popup.success {
+  background: #d1e7dd;
+  color: #0C4029;
+}
+#v-popup.success::before {
+  background: #559262;
+}
+
+#v-popup.danger {
+  background: #F9D6DA;
+  color: #6A1B20;
+}
+#v-popup.danger::before {
+  background: #ad5e64;
+}
+
+#v-popup.info {
+  background: #CFE3FE;
+  color: #06347B;
+}
+#v-popup.info::before {
+  background: #5486d1;
+}
+
+#v-popup.warning {
+  background: #FFF2CC;
+  color: #563F02;
+}
+#v-popup.warning::before {
+  background: #b8973e;
+}

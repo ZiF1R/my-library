@@ -1,3 +1,5 @@
+import Alert from "./plugins/alert/index.js";
+
 class Library {
   constructor(books = []) {
     this.books = books;
@@ -99,6 +101,14 @@ function printNewBook(book) {
   removeButton.addEventListener("click", () => {
     app.querySelector("table.books .table__content").removeChild(bookNode);
     myLibrary.removeBook(book);
+
+    new Alert(
+      app,
+      "danger",
+      "bottom-right",
+      "Attention",
+      "The book was removed!"
+    );
   });
 
   app.querySelector("table.books .table__content").appendChild(bookNode);
@@ -119,6 +129,14 @@ function setDefaultEventListeners() {
       );
       titleField.value = authorField.value = descriptionField.value = "";
       e.preventDefault();
+
+      new Alert(
+        app,
+        "success",
+        "bottom-right",
+        "Success",
+        "The book added successfully!"
+      );
     }
   });
 
