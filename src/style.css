@@ -143,10 +143,20 @@ p {
 }
 
 .table__column {
+  position: relative;
   cursor: pointer;
   padding: 0 0 10px 10px;
 
   user-select: none;
+}
+
+.table__column::before {
+  display: none;
+  font-size: 0.7em;
+  position: absolute;
+  content: "▼";
+  right: 5%;
+  top: 17%;
 }
 
 .column__number {
@@ -175,6 +185,10 @@ p {
 .table__legend .column__active {
   color: #589ceb;
   border-bottom: 1px solid #589ceb;
+}
+
+.table__legend .column__active::before {
+  display: block;
 }
 
 .table__legend .table__column:hover {
