@@ -48,7 +48,7 @@ class Library {
   }
 
   renderLibrary() {
-    app.getElementsByClassName("table__content")[0].innerHTML = "";
+    app.querySelector(".table__content").innerHTML = "";
     for (let book of this.books)
       printNewBook(book);
   }
@@ -82,9 +82,7 @@ function printNewBook(book) {
       </button>
     </div>
     <div class="table__column column__remove">
-      <button class="button button_danger">
-        Remove
-      </button>
+      <button class="button button_danger">Remove</button>
     </div>`;
 
   let readButton = bookNode.querySelector(".column__status > button");
