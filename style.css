@@ -8,7 +8,7 @@ body {
 }
 
 #app {
-  width: 60%;
+  width: 66%;
   margin: 60px auto;
 }
 
@@ -154,13 +154,17 @@ p {
 }
 
 .column__description {
-  width: calc(36% - 10px);
+  width: calc(29% - 10px);
 }
 
 .column__title,
-.column__author,
-.column__status {
-  width: calc(20% - 10px);
+.column__author {
+  width: calc(18% - 10px);
+}
+
+.column__status,
+.column__remove {
+  width: calc(15% - 10px);
 }
 
 .table__legend .table__column {
@@ -218,7 +222,8 @@ p {
   padding-right: 10px;
 }
 
-.table__item .column__status {
+.table__item .column__status,
+.table__item .column__remove {
   display: flex;
   justify-content: flex-start;
   align-items: center;
