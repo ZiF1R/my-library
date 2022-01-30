@@ -17,7 +17,7 @@ class Alert {
       this.position,
       "before-add"
     );
-    popup.innerHTML = `<h3>${this.title}!</h3>
+    popup.innerHTML = `<h3>${this.title}</h3>
     ${this.content !== "" ? "<p>"+this.content+"</p>" : ""}`;
 
     this.container.appendChild(popup);

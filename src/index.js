@@ -106,7 +106,7 @@ function printNewBook(book) {
       app,
       "danger",
       "bottom-right",
-      "Attention",
+      "Attention!",
       "The book was removed!"
     );
   });
@@ -134,7 +134,7 @@ function setDefaultEventListeners() {
         app,
         "success",
         "bottom-right",
-        "Success",
+        "Success!",
         "The book added successfully!"
       );
     }
