@@ -11,6 +11,20 @@ class Library {
     return this.books.length;
   }
 
+  removeBook(book) {
+    let removeIndex = this.books.indexOf(book);
+    if (removeIndex !== this.books.length - 1) {
+      for (let i = removeIndex; i < this.books.length - 1; i++) {
+        this.books[i + 1].number--;
+        this.books[i] = this.books[i + 1];
+      }
+    }
+    this.books.pop();
+    this.renderLibrary();
+
+    return this.books.length;
+  }
+
   volume() {
     return this.books.length;
   }
@@ -30,6 +44,10 @@ class Library {
       else return 1;
     }); break;
     }
+    this.renderLibrary();
+  }
+
+  renderLibrary() {
     app.getElementsByClassName("table__content")[0].innerHTML = "";
     for (let book of this.books)
       printNewBook(book);
@@ -62,9 +80,15 @@ function printNewBook(book) {
       <button class="button ${book.status ? "button_primary" : "button_danger"}">
         ${book.status ? "read" : "Not read"}
       </button>
+    </div>
+    <div class="table__column column__remove">
+      <button class="button button_danger">
+        Remove
+      </button>
     </div>`;
 
   let readButton = bookNode.querySelector(".column__status > button");
+  let removeButton = bookNode.querySelector(".column__remove > button");
   readButton.addEventListener("click", (e) => {
     let button = e.target;
     button.innerHTML =
@@ -73,6 +97,10 @@ function printNewBook(book) {
     button.classList.toggle("button_danger");
     book.status =
       button.classList.contains("button_primary") ? true : false;
+  });
+  removeButton.addEventListener("click", () => {
+    app.querySelector("table.books .table__content").removeChild(bookNode);
+    myLibrary.removeBook(book);
   });
 
   app.querySelector("table.books .table__content").appendChild(bookNode);
@@ -103,11 +131,14 @@ function setDefaultEventListeners() {
     if (target === tableLegend) return;
 
     let columns = tableLegend.children;
-    let bookNumber = tableLegend.querySelector(".column__number");
     for (let column of columns)
       if (column !== target)
         column.classList.remove("column__active");
-    target !== bookNumber && target.classList.toggle("column__active");
+    if (
+      !target.classList.contains("column__number") &&
+      !target.classList.contains("column__remove")
+    )
+      target.classList.toggle("column__active");
 
     if (target.classList.contains("column__active")) {
       myLibrary.sortBy(target.innerHTML.toLowerCase());
