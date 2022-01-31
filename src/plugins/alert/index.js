@@ -1,11 +1,18 @@
 class Alert {
-  constructor(container = document.body, type, position, title, content = "") {
+  /**
+   * @constructor
+   * @param {HTMLElement} container - the parent element in which will appear Alert, by default - document.body
+   * @param {string} type - affect on Alert style, the posible values - "success", "danger", "info", "warning"
+   * @param {string} position - position of Alert, the posible values - "top-left", "top-right", "bottom-left", "bottom-right"
+   * @param {string} content - content of Alert, can contain html tags
+   */
+  constructor(container = document.body, type, position, content) {
     this.container = container;
     this.type = type;
     this.position = position;
-    this.title = title;
     this.content = content;
 
+    // create div-element and append in to this.container
     this.createPopupElement();
   }
 
@@ -17,10 +24,12 @@ class Alert {
       this.position,
       "before-add"
     );
-    popup.innerHTML = `<h3>${this.title}</h3>
-    ${this.content !== "" ? "<p>"+this.content+"</p>" : ""}`;
+    popup.innerHTML = `<p>${this.content}</p>`;
 
     this.container.appendChild(popup);
+
+    // after 2.9 seconds alert will start disappearing
+    // and after 3.5 seconds alert will be removed from DOM
     setTimeout(() => popup.classList.add("before-remove"), 2900);
     setTimeout(() => this.container.removeChild(popup), 3500);
   }
